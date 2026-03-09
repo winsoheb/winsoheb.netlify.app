@@ -1,0 +1,260 @@
+/* ==========================================================================
+   Custom Global Overrides (Dark Mode & Tool Grid)
+   ========================================================================== */
+
+/* Light Theme Variables (Default) */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --heading-color: #1a1a1a;
+    --section-bg-light: #f9f9f9;
+    --section-bg-dark: #222323;
+    --card-bg: #ffffff;
+    --card-border: #eeeeee;
+    --accent-color: #a277ff;
+    --header-bg: #ffffff;
+    --tools-grid-bg: #ffffff;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --section-bg-light: #1e1e1e;
+    --section-bg-dark: #0a0a0a;
+    --card-bg: #1f1f1f;
+    --card-border: #333333;
+    --header-bg: #1a1a1a;
+    --tools-grid-bg: #1e1e1e;
+}
+
+/* Apply Theme Variables to Body */
+body, .wrapper-boxed, .site-wrapper {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6, .ce-title-top-text, .ce-sub-text, .title, p {
+    color: var(--heading-color) !important;
+}
+p {
+    color: var(--text-color) !important;
+}
+
+/* Header & Menu */
+.header-section.style1, .header-section.style1.pin-style {
+    background-color: var(--header-bg) !important;
+}
+
+#menu .nav > li > a {
+    color: var(--heading-color) !important;
+}
+
+#menu .nav > li.active > a, 
+#menu .nav > li > a:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Theme Toggle Button Styling */
+.theme-toggle-btn {
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: var(--heading-color) !important;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: 15px; /* Aligns with nav links typically */
+}
+
+/* Animate only the icon, not the entire button with its text */
+.theme-toggle-btn i {
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--accent-color) !important;
+}
+
+.theme-toggle-btn:hover i {
+    transform: rotate(15deg) scale(1.1);
+}
+
+/* Sections Background Overrides based on Theme */
+.sec-padding-4, .section-light, .section-light-3 {
+    background-color: var(--bg-color) !important;
+}
+
+/* ==========================================================================
+   Modern Tools Section Grid Restyle
+   ========================================================================== */
+
+/* Modern CSS Grid for Tools */
+.modern-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 30px;
+    padding: 40px 0;
+}
+
+.modern-tool-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.modern-tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, var(--accent-color) 0%, rgba(162, 119, 255, 0.2) 100%);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.modern-tool-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-color: var(--accent-color);
+}
+
+[data-theme="dark"] .modern-tool-card:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+.modern-tool-card:hover::before {
+    opacity: 0.05;
+}
+
+.modern-tool-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.modern-tool-card:hover .modern-tool-icon {
+    transform: scale(1.1);
+}
+
+.modern-tool-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    color: var(--heading-color);
+}
+
+.modern-tool-category {
+    font-size: 13px;
+    color: var(--text-color);
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Feature boxes fixes for dark mode */
+.ce-feature-box-57 .title, .ce-feature-box-57 p {
+   color: var(--heading-color) !important;
+}
+.ce-feature-box-57 .icon {
+   color: var(--heading-color) !important;
+}
+
+/* Education Section Cards */
+[data-theme="dark"] .text-box.white {
+    background-color: var(--card-bg) !important;
+}
+
+/* Mobile Navigation Menus in Dark Mode */
+[data-theme="dark"] #menu.collapse.in,
+[data-theme="dark"] #menu.collapsing {
+    background-color: var(--header-bg) !important;
+}
+[data-theme="dark"] .navbar-toggle {
+    background-color: var(--card-bg) !important;
+}
+[data-theme="dark"] .navbar-toggle .icon-bar {
+    background-color: var(--text-color) !important;
+}
+[data-theme="dark"] ul.nav li a {
+    color: var(--heading-color) !important;
+}
+
+/* Mobile specific styling for theme toggle and navbar */
+@media screen and (max-width: 991px) {
+    /* Ensure the hamburger menu is visible against the background in both modes */
+    .navbar-toggle {
+        display: block !important;
+        padding: 10px;
+        margin-top: 15px;
+        float: right;
+    }
+    .navbar-toggle .fa-bars {
+        color: var(--heading-color) !important;
+        font-size: 26px;
+    }
+
+    /* Style the day/night toggle link dynamically for the dropdown */
+    .theme-toggle-btn {
+        margin-top: 5px;
+        margin-bottom: 10px;
+        padding: 10px 15px;
+        width: 100%;
+        justify-content: flex-start;
+        text-align: left;
+        display: flex !important;
+        align-items: center;
+        border-radius: 0;
+        transform: none !important; /* Prevent button rotation on mobile */
+    }
+
+    .dark-mode-li {
+        border-top: 1px solid var(--card-border);
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        float: none !important; /* Prevent overlapping with previous menu items */
+        clear: both;
+    }
+
+    /* Force all dropdown links to be visible and have the proper heading color */
+    .header-section #menu > ul.nav > li > a {
+        color: var(--heading-color) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+    
+    [data-theme="dark"] .header-section #menu > ul.nav > li > a {
+        color: #ffffff !important;
+    }
+
+    /* Fix the background color of the mobile dropdown in dark mode */
+    [data-theme="dark"] .header-section #menu > ul {
+        background-color: var(--header-bg) !important;
+        border-color: var(--card-border) !important;
+    }
+    
+    [data-theme="dark"] .header-section #menu > ul > li {
+        border-color: var(--card-border) !important;
+    }
+}
